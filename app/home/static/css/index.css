@@ -12,6 +12,14 @@
   overflow-y: auto;
 }
 
+.chat-section #messageDisplay .li-user {
+  font-weight: bold;
+}
+
+.chat-section #messageDisplay .li-dt {
+  font-size: 0.8rem;
+}
+
 .chat-section #messageInput {
   margin-top: 1em;
   display: -webkit-box;

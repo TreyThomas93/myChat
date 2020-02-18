@@ -1,3 +1,4 @@
 .vscode
 *.scss
 *.css.map
+__pycache__

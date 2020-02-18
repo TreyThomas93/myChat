@@ -9,12 +9,46 @@ $(document).ready(function() {
     socket.on("connect", function() {
       socket.emit("connect user", { datetime: datetime() });
     });
+
+    // callback
+    socket.on("on connect", function(response) {
+      let user = response["user"];
+      let message = response["message"];
+      let datetime = response["dt"];
+      $("#messageDisplay > ul").append(
+        "<li>" +
+          "<span class='li-user'>" +
+          user + " " +
+          "</span>" +
+          message +
+          " - " +
+          "<span class='li-dt'>" +
+          datetime +
+          "</span>" +
+          "</li>"
+      );
+    });
   }
 
   function receive_messages() {
     // receives messages from server
-    socket.on("message", function(msg) {
-      $("#messageDisplay > ul").append("<li>" + msg + "</li>");
+    socket.on("receive message", function(response) {
+      let user = response["user"];
+      let message = response["message"];
+      let datetime = response["dt"];
+
+      $("#messageDisplay > ul").append(
+        "<li>" +
+          "<span class='li-user'>" +
+          user +
+          "</span>" +
+          ": " +
+          message + " - " +
+          "<span class='li-dt'>" +
+          datetime +
+          "</span>" +
+          "</li>"
+      );
     });
   }
 
@@ -56,8 +90,6 @@ $(document).ready(function() {
 
   // auto scroll to bottom of message display //
   function scrollBottom() {
-    $("#messageDisplay").scrollTop(
-      $("#messageDisplay")[0].scrollHeight
-    );
+    $("#messageDisplay").scrollTop($("#messageDisplay")[0].scrollHeight);
   }
 });

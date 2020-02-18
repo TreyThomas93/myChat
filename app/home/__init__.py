@@ -38,9 +38,8 @@ def connect_handler(json):
     """
     dt = json["datetime"]
     if current_user.is_authenticated:
-        msg = f"{current_user.username} has joined the chat! - {dt}"
-        print(msg)
-        send(msg, broadcast=True)
+        msg = "has joined the chat"
+        emit("on connect", {"user" : current_user.username, "message" : msg, "dt" : dt}, broadcast=True)
     else:
         return False
 
@@ -62,5 +61,7 @@ def message_handler(json):
     db.session.commit()
 
     ## broadcast ##
-    msg = f"{current_user.username}: {msg} - {dt}"
-    send(msg, broadcast=True)
+    # msg = f"{current_user.username}: {msg} - {dt}"
+    # send(msg, broadcast=True)
+
+    emit("receive message", {"user" : current_user.username, "message" : msg, "dt" : dt}, broadcast=True)
