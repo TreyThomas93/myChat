@@ -1,0 +1,37 @@
+{% extends "includes/layout.html" %}
+<!--  -->
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('authorize.static', filename='css/register.css') }}"
+/>
+<title>myChat Register</title>
+{% endblock %}
+<!--  -->
+{% block nav %}
+<!-- NONE -->
+{% endblock %}
+<!--  -->
+{% block content %}
+<form action="/register" method="POST">
+  <fieldset>
+    <h3>Register</h3>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="username" placeholder="Enter Username" />
+      </div>
+    </div>
+    <div class="bottom-form-container">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </fieldset>
+  <!-- DISPLAYS FLASH MESSAGE -->
+  <div class="message-container">
+    {% include "includes/message.html" %}
+  </div>
+</form>
+{% endblock %}
+<!--  -->
+{% block script %}
+<!-- NONE -->
+{% endblock %}

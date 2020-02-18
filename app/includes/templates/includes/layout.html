@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('includes.static', filename='css/bootstrap.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('includes.static', filename='css/layout.css') }}">
+    {% block head %}
+    <!-- TITLE AND LINKS TO STYLESHEET -->
+    {% endblock %}
+  </head>
+  <body>
+    <main>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">myChat</a>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            {% block nav %}
+            <!-- LINKS TO OTHER PAGES -->
+            {% endblock %}
+          </ul>
+        </div>
+      </nav>
+
+      {% block content %}
+      <!-- MAIN CONTENT -->
+      {% endblock %}
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="{{ url_for('includes.static', filename='js/moment.js') }}"></script>
+    <script src="{{ url_for('includes.static', filename='js/jquery.js') }}"></script>
+    {% block script %}
+    <!-- LINKS TO JS SCRIPTS -->
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,30 @@
+.chat-section {
+  margin-top: 1em;
+}
+
+.chat-section #messageDisplay {
+  height: 50vh;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px rgba(1, 1, 1, 0.2);
+          box-shadow: 0 0 10px rgba(1, 1, 1, 0.2);
+  background-color: #f7f7f7;
+  padding: 1em;
+  overflow-y: auto;
+}
+
+.chat-section #messageInput {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat-section #messageInput > div {
+  width: 90%;
+}
+
+.chat-section #messageInput button {
+  width: 10%;
+  height: 40px;
+}
+/*# sourceMappingURL=index.css.map */
